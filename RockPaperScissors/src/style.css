@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: linear-gradient(to right, #74ebd5, #acb6e5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+}
+
+.game-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.game-container:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.choices {
+    margin-bottom: 20px;
+}
+
+.choice {
+    padding: 15px 30px;
+    font-size: 1.5em;
+    margin: 0 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+    outline: none;
+}
+
+.choice:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+.choice:active {
+    transform: translateY(0);
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+.play-again {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.play-again:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+footer {
+    position: absolute;
+    bottom: 10px;
+    font-size: 20px;
+    color: #050505;
+}
+
+.highlight {
+    animation: highlight-animation 0.5s forwards;
+}
+
+@keyframes highlight-animation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
