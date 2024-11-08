@@ -25,9 +25,9 @@ Each project in this repository explores different aspects of **Web 2.0** design
 
 Here’s a list of the cool projects featured in this repo:
 
-1. 
-5. **JournalJar** - A digital journal with mood tracking and writing prompts ✍️ 
-
+1. **RPS_Game**: Just normal child game
+2. **JournalJar** - A digital journal with mood tracking and writing prompts ✍️ 
+...on the way, stay connected!
 ---
 
 ## 🛠️ Technologies Used
