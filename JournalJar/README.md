@@ -52,24 +52,32 @@ git clone https://github.com/yourusername/JournalJar.git
 ## 📂 Project Structure
 JournalJar/
 │
-├── index.html        # Main HTML structure
-├── style.css         # Styling
-├── script.js         # Application logic
-├── quotes.json       # quotes ( Just for it, you know )      
-└── README.md         # Project documentation
+
+├── index.html             # Main HTML structure
+
+├── style.css              # Styling
+
+├── script.js              # Application logic
+
+├── quotes.json            # quotes ( Just for it, you know )   
+
+└── README.md              # Project documentation
 
 ## 🔧 Functionality Details
 ### Mood Tracking
   - Click mood buttons to log your current emotional state
   - Selected mood is saved with each journal entry
+    
 ### Daily Prompt
   - Randomly selected writing prompt appears each time you load the page
   - Prompts designed to inspire reflection
+    
 ### Journaling
   - Enter a title for your entry
   - Write your thoughts in the main text area
   - Add tags to categorize your entry
   - Save entries to local browser storage
+
 ## Entry Management
   - View all past entries in a modal
   - Search through entries by title or content
@@ -82,6 +90,12 @@ JournalJar/
 - Push to the branch `git push origin feature/AmazingFeature`
 - Open a Pull Request
 
-📞 Contact
-Your Name - jamadarjivan01@gmail.com
-Project Link: 
+
+Feel free to reachout to me!
+
+Email: jamadarjivan01@gmail.com
+
+
+Happy coding!
+
+Jivan Jamdar
