@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-card">
+            <h2 id="location">New York, USA</h2>
+            <div class="temp">
+                <span id="temperature">22°C</span>
+                <div id="icon" class="weather-icon sunny"></div>
+            </div>
+            <p id="description">Sunny</p>
+            <p id="humidity">Humidity: 60%</p>
+            <p id="wind">Wind: 15 km/h</p>
+        </div>
+
+        <div class="forecast">
+            <h3>3-Day Forecast</h3>
+            <div class="forecast-cards">
+                <div class="forecast-card">
+                    <p>Mon</p>
+                    <div class="weather-icon sunny"></div>
+                    <p>25°C</p>
+                </div>
+                <div class="forecast-card">
+                    <p>Tue</p>
+                    <div class="weather-icon cloudy"></div>
+                    <p>20°C</p>
+                </div>
+                <div class="forecast-card">
+                    <p>Wed</p>
+                    <div class="weather-icon rainy"></div>
+                    <p>18°C</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
