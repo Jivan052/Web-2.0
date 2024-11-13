@@ -72,7 +72,7 @@ Got any questions or feedback? Let’s talk! 🤖
 
 Email: jamadarjivan01@gmail.com 📧
 
-GitHub: @Jivanjamadar
+GitHub: @Jivan052
 
 ## ✨ Special Thanks to
    - Web Dev Community for continuous inspiration and support 🙏
