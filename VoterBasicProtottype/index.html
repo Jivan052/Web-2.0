@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Election Voting System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <h1>Club Election Voting System</h1>
+    <div class="candidates">
+        <div class="candidate">
+            <h3>John Doe</h3>
+            <p>Position: President</p>
+            <p>Votes: <span id="vote-count-John">0</span></p>
+            <button onclick="vote('John')">Vote for John</button>
+            <button onclick="showProfile('John')">View Profile</button>
+        </div>
+        <div class="candidate">
+            <h3>Jane Smith</h3>
+            <p>Position: Vice President</p>
+            <p>Votes: <span id="vote-count-Jane">0</span></p>
+            <button onclick="vote('Jane')">Vote for Jane</button>
+            <button onclick="showProfile('Jane')">View Profile</button>
+        </div>
+    </div>
+
+    <!-- Modal for Profile View -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-name"></h2>
+            <p id="modal-position"></p>
+            <p id="modal-bio"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
