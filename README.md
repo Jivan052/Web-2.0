@@ -26,7 +26,9 @@ Each project in this repository explores different aspects of **Web 2.0** design
 Here’s a list of the cool projects featured in this repo:
 
 1. **RPS_Game**: Just normal child game
-2. **JournalJar** - A digital journal with mood tracking and writing prompts ✍️ 
+2. **JournalJar** - A digital journal with mood tracking and writing prompts ✍️
+3. **CoolBlogger** - A initial phased blogging site✍️
+4. **Currency convertor** - A initial phased currency convertor site✍️ 
 ...on the way, stay connected!
 ---
 
