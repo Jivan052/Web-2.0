@@ -28,7 +28,9 @@ Here’s a list of the cool projects featured in this repo:
 1. **RPS_Game**: Just normal child game
 2. **JournalJar** - A digital journal with mood tracking and writing prompts ✍️
 3. **CoolBlogger** - A initial phased blogging site✍️
-4. **Currency convertor** - A initial phased currency convertor site✍️ 
+4. **Currency convertor** - A initial phased currency convertor site✍️
+5. **RideEasy** - A rider searching web-based app prototype
+6. **Expense Tracker** - A monthly expense tracker with dynamic visualization feature
 ...on the way, stay connected!
 ---
 
