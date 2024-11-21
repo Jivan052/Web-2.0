@@ -31,6 +31,8 @@ Here’s a list of the cool projects featured in this repo:
 4. **Currency convertor** - A initial phased currency convertor site✍️
 5. **RideEasy** - A rider searching web-based app prototype
 6. **Expense Tracker** - A monthly expense tracker with dynamic visualization feature
+7. **Fitness Tracker** - A web-based application for daily logs and goals achievement
+   
 ...on the way, stay connected!
 ---
 
