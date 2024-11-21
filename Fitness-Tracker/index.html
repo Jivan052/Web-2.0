@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fitness Tracker</h1>
+        </header>
+
+        <main>
+            <section class="workout-log">
+                <h2>Log Your Workout</h2>
+                <form id="workoutForm">
+                    <label for="workoutType">Workout Type:</label>
+                    <select id="workoutType" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="Cardio">Cardio</option>
+                        <option value="Strength">Strength</option>
+                        <option value="Yoga">Yoga</option>
+                    </select>
+
+                    <label for="duration">Duration (minutes):</label>
+                    <input type="number" id="duration" required>
+
+                    <label for="calories">Calories Burned:</label>
+                    <input type="number" id="calories" required>
+
+                    <button type="submit">Add Workout</button>
+                </form>
+
+                <div id="workoutList">
+                    <h3>Your Workouts</h3>
+                    <ul></ul>
+                </div>
+            </section>
+
+            <section class="goal-tracking">
+                <h2>Set Your Goal</h2>
+                <form id="goalForm">
+                    <label for="goal">Goal (e.g., Run 10 km):</label>
+                    <input type="text" id="goal" required>
+
+                    <label for="progress">Progress (%):</label>
+                    <input type="number" id="progress" required>
+
+                    <button type="submit">Set Goal</button>
+                </form>
+
+                <div id="goalDisplay">
+                    <h3>Current Goal</h3>
+                    <p id="goalText">No goal set yet.</p>
+                    <div class="progress-bar">
+                        <div id="progressFill"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
