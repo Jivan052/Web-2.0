@@ -33,6 +33,7 @@ Here’s a list of the cool projects featured in this repo:
 6. **Expense Tracker** - A monthly expense tracker with dynamic visualization feature
 7. **Fitness Tracker** - A web-based application for daily logs and goals achievement
 8. **MinerSweeper Game** -  A basic miner sweeper game
+9. **QR code generator** - A basic QR code generator
 
    ...on the way, stay connected!
 ---
