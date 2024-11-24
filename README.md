@@ -34,6 +34,7 @@ Here’s a list of the cool projects featured in this repo:
 7. **Fitness Tracker** - A web-based application for daily logs and goals achievement
 8. **MinerSweeper Game** -  A basic miner sweeper game
 9. **QR code generator** - A basic QR code generator
+10. **Login-dash** - A basic login and market user dashboard
 
    ...on the way, stay connected!
 ---
