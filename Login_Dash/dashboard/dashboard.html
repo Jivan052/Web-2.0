@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard">
+        <nav class="sidebar">
+            <div class="user-info">
+                <img src="https://via.placeholder.com/80" alt="Profile" class="profile-img">
+                <h3 id="username-display">Welcome User</h3>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><i class="fas fa-home"></i>Dashboard</li>
+                <li><i class="fas fa-user"></i>Profile</li>
+                <li><i class="fas fa-cog"></i>Settings</li>
+                <li id="logout"><i class="fas fa-sign-out-alt"></i>Logout</li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <div class="header">
+                <h1><span style="font-size: 40px;">Dashboard</span></h1>
+                <div class="date" id="current-date"></div>
+            </div>
+            
+            <div class="welcome-section">
+                <div class="greeting">
+                    <span style="font-size: 30px;"><h2 id="time-greeting">Good Morning</h2></span>
+                    
+                    <h3 id="user-greeting"><span style="color: rgb(44, 42, 42);">Welcome back,</span> <span id="user-name">User</span>!</h3>
+                    <span style="font-size: 10px;"><p class="last-login">Last login: <span id="last-login-time">Today at 9:30 AM</span></p></span>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <div class="stat-info">
+                            <h4>Session Time</h4>
+                            <p id="session-time">0:00</p>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-tasks"></i>
+                        <div class="stat-info">
+                            <h4>Tasks Today</h4>
+                            <p>5 pending</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Total Users</h3>
+                        <p>1,234</p>
+                    </div>
+                    <div class="card-stats">
+                        <span class="positive"><i class="fas fa-arrow-up"></i> 12%</span>
+                        <span class="period">vs last week</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Revenue</h3>
+                        <p>$45,678</p>
+                    </div>
+                    <div class="card-stats">
+                        <span class="positive"><i class="fas fa-arrow-up"></i> 8%</span>
+                        <span class="period">vs last month</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="card-info">
+                        <h3>Sales</h3>
+                        <p>567</p>
+                    </div>
+                    <div class="card-stats">
+                        <span class="negative"><i class="fas fa-arrow-down"></i> 3%</span>
+                        <span class="period">vs yesterday</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-section">
+                <br>
+                <h2>Recent Activity</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time">09:00 AM</div>
+                        <div class="content">
+                            <h4>New User Registration</h4>
+                            <p>John Doe created an account</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">10:30 AM</div>
+                        <div class="content">
+                            <h4>Sales Milestone</h4>
+                            <p>Monthly target achieved</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time">11:45 AM</div>
+                        <div class="content">
+                            <h4>System Update</h4>
+                            <p>Version 2.0 deployed successfully</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('username') || 'User';
+            document.getElementById('user-name').textContent = username;
+            document.getElementById('username-display').textContent = username;
+            updateGreeting();
+            updateDateTime();
+            startSessionTimer();
+        });
+
+        // Update greeting based on time
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greeting = document.getElementById('time-greeting');
+            if (hour < 12) greeting.textContent = 'Good Morning';
+            else if (hour < 18) greeting.textContent = 'Good Afternoon';
+            else greeting.textContent = 'Good Evening';
+        }
+
+        // Update date and time
+        function updateDateTime() {
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = 
+                new Date().toLocaleDateString('en-US', options);
+        }
+
+        // Session timer
+        function startSessionTimer() {
+            let sessionSeconds = 0;
+            setInterval(() => {
+                sessionSeconds++;
+                const minutes = Math.floor(sessionSeconds / 60);
+                const seconds = sessionSeconds % 60;
+                document.getElementById('session-time').textContent = 
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // Logout handler
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('username');
+            localStorage.removeItem('isLoggedIn');
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+/* dashboard.css */
+:root {
+    --primary: #520b7f;
+    --secondary: #FF6B6B;
+    --dark: #5687b8;
+    --light: #ecf0f1;
+    --gradient-1: linear-gradient(45deg, #b3a9c9, #c2d6eb);
+    --gradient-2: linear-gradient(135deg, #FF6B6B, #556270);
+    --glass: rgba(150, 39, 190, 0.1);
+    --glass-card: rgba(255, 255, 255, 0.15);
+    --border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--gradient-1);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-right: 1px solid var(--border);
+}
+
+.user-info {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    padding: 3px;
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.nav-links li {
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--glass);
+    border: 1px solid var(--border);
+}
+
+.nav-links li:hover {
+    background: var(--glass-card);
+    transform: translateX(10px);
+}
+
+.nav-links li.active {
+    background: var(--gradient-2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.welcome-section {
+    background: var(--glass-card);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    transform-style: preserve-3d;
+    transition: all 0.3s ease;
+}
+
+.welcome-section:hover {
+    transform: translateY(-10px) rotateX(5deg);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--glass-card);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 25px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    animation: cardFloat 3s ease-in-out infinite;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.stat {
+    background: var(--glass);
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.stat:hover {
+    background: var(--glass-card);
+    transform: scale(1.05);
+}
+
+.stat i {
+    font-size: 2em;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.stat:hover i {
+    transform: rotate(360deg);
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card, .stat {
+    animation: fadeInUp 0.5s ease backwards;
+}
+
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.4s; }
+
+/* Card content styling */
+.card-icon {
+    font-size: 2.5em;
+    color: var(--primary);
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+.card-info h3 {
+    color: var(--light);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.card-info p {
+    color: var(--primary);
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.card-stats {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-stats span {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+.positive {
+    background: rgba(78, 205, 196, 0.2);
+    color: var(--primary);
+}
+
+.negative {
+    background: rgba(170, 12, 201, 0.2);
+    color: var(--secondary);
+}
+
+/* Timeline styling */
+.timeline {
+    margin-top: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 20px;
+    background: var(--glass-card);
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+    animation: slideIn 0.5s ease backwards;
+}
+
+.timeline-item:hover {
+    transform: translateX(10px);
+    background: var(--glass);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline-item {
+        margin-left: 0;
+    }
+    
+    .timeline-item::before {
+        left: 50%;
+        top: -10px;
+        transform: translateX(-50%);
+    }
+}
+
+/* Theme toggle animation */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--glass);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(180deg);
+    background: var(--glass-card);
+}
+
+/* Scroll bar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--glass);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
