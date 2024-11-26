@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Task Manager</h1>
+    </header>
+    <main>
+      <section id="project-section">
+        <h2>Projects</h2>
+        <div id="projects"></div>
+        <button id="add-project-btn">+ Add Project</button>
+      </section>
+
+      <section id="task-section">
+        <h2>Tasks</h2>
+        <div id="tasks"></div>
+        <button id="add-task-btn">+ Add Task</button>
+      </section>
+
+      <section id="calendar-section">
+        <h2>Calendar</h2>
+        <div id="calendar"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal for adding projects/tasks -->
+  <div id="modal" class="hidden">
+    <div class="modal-content">
+      <h3 id="modal-title"></h3>
+      <form id="modal-form">
+        <input type="text" id="item-title" placeholder="Title" required>
+        <textarea id="item-description" placeholder="Description"></textarea>
+        <input type="date" id="item-deadline">
+        <select id="item-priority">
+          <option value="low">Low</option>
+          <option value="medium">Medium</option>
+          <option value="high">High</option>
+        </select>
+        <button type="submit">Save</button>
+        <button type="button" id="close-modal">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

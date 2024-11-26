@@ -1,0 +1,182 @@
+/* Base styles with enhanced gradients */
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #4ecdc4;
+  --accent-color: #556270;
+  --background-gradient: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  --card-gradient: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  --glass: rgba(255, 255, 255, 0.15);
+  --border: rgba(255, 255, 255, 0.2);
+  --shadow-1: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background: var(--background-gradient);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+section {
+  margin-bottom: 30px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Input styles */
+input, textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: var(--glass);
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-2);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 10px var(--secondary-color);
+}
+
+/* Button styles */
+button {
+  background: var(--primary-color);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-2);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+button:hover {
+  background: var(--secondary-color);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Add shimmer effect */
+button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-150%) rotate(45deg); }
+  100% { transform: translateX(150%) rotate(45deg); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Calendar styles */
+.calendar {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: var(--shadow-1);
+  transition: all 0.3s ease;
+}
+
+.calendar:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Save button styles */
+.save-button {
+  background: var(--secondary-color);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.save-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.save-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.save-button:hover {
+  background: var(--primary-color);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.save-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
