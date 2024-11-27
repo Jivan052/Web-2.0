@@ -1,0 +1,195 @@
+/* style.css */
+:root {
+    --primary: #040404;
+    --secondary: #4ECDC4;
+    --dark: #2C3E50;
+    --glass: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.2);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-right: 1px solid var(--border);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 35px 10px 15px;
+    border: none;
+    border-radius: 20px;
+    background: var(--glass);
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.search-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+}
+
+.nav-links li {
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links li:hover {
+    background: var(--glass);
+    transform: translateX(5px);
+}
+
+.nav-links li.active {
+    background: var(--glass);
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.add-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: var(--glass);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+}
+
+.add-btn:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+.filters {
+    margin-bottom: 30px;
+}
+
+.filters button {
+    padding: 8px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 15px;
+    background: var(--glass);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filters button.active {
+    background: var(--primary);
+}
+
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Add animation classes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+.item {
+    background: var(--glass);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border);
+}
+
+.item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item-content {
+    padding: 20px;
+    color: white;
+}
+
+.item-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.item-actions button {
+    padding: 8px;
+    border: none;
+    border-radius: 50%;
+    background: var(--glass);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.item-actions button:hover {
+    background: var(--primary);
+    transform: scale(1.1);
+}
