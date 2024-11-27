@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function addNewItem() {
         const newItem = {
             id: Date.now(),
-            title: 'New Item',
+            title: 'Your IMPs are saved successfully!',
             url: 'https://example.com',
             type: 'article',
             thumbnail: `https://picsum.photos/300/200?${Math.random()}`,
