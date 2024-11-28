@@ -1,6 +1,6 @@
 /* style.css */
 :root {
-    --primary: #58cc02;
+    --primary: #085179;
     --secondary: #1cb0f6;
     --glass: rgba(255, 255, 255, 0.1);
     --border: rgba(255, 255, 255, 0.2);
@@ -16,7 +16,7 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #1cb0f6, #58cc02);
+    background: linear-gradient(135deg, #1cb0f6, #090909);
 }
 
 .container {
