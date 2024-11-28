@@ -1,0 +1,426 @@
+/* style.css */
+:root {
+    --primary: #58cc02;
+    --secondary: #1cb0f6;
+    --glass: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.2);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1cb0f6, #58cc02);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 280px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-right: 1px solid var(--border);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    color: white;
+}
+
+.avatar {
+    position: relative;
+}
+
+.avatar img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+}
+
+.streak {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background: var(--primary);
+    padding: 3px;
+    border-radius: 50%;
+    font-size: 12px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--glass);
+    border-radius: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links li {
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links li:hover {
+    background: var(--glass);
+    transform: translateX(5px);
+}
+
+.content {
+    flex: 1;
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.stats span {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.lesson-card {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.lesson-icon {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.start-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.start-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(88, 204, 2, 0.3);
+}
+
+.locked .start-btn {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.locked {
+    opacity: 0.7;
+}
+
+@keyframes bounceIn {
+    from { transform: scale(0.3); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.lesson-card {
+    animation: bounceIn 0.5s ease backwards;
+}
+
+/* Continuing animations and effects */
+.lesson-card:nth-child(4) { animation-delay: 0.3s; }
+.lesson-card:nth-child(5) { animation-delay: 0.4s; }
+
+/* Hover effects for icons */
+.lesson-icon {
+    transition: transform 0.3s ease;
+}
+
+.lesson-card:hover .lesson-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* XP badge styling */
+.xp {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    backdrop-filter: blur(5px);
+}
+
+/* Achievement unlocked animation */
+@keyframes unlock {
+    0% { transform: scale(0.3) rotate(-10deg); }
+    50% { transform: scale(1.2) rotate(5deg); }
+    100% { transform: scale(1) rotate(0); }
+}
+
+.unlocked {
+    animation: unlock 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Progress indicator */
+.level-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--primary);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Skill tree connector lines */
+.connector {
+    position: absolute;
+    background: var(--border);
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    z-index: -1;
+    transform: scaleX(0);
+    transition: transform 0.5s ease;
+    transform-origin: left;
+}
+
+.lesson-card.completed + .connector {
+    transform: scaleX(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .lessons-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Accessibility focus styles */
+.start-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(88, 204, 2, 0.5);
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --glass: rgba(255, 255, 255, 0.05);
+        --border: rgba(255, 255, 255, 0.1);
+    }
+}
+/* Additional styles for enhanced UI */
+
+/* Achievement badges */
+.achievement-badge {
+    position: relative;
+    background: var(--glass);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+.achievement-badge::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.achievement-badge:hover::before {
+    opacity: 1;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Enhanced button effects */
+.button-3d {
+    transform-style: preserve-3d;
+    transform: translateZ(0);
+    transition: transform 0.3s;
+}
+
+.button-3d:active {
+    transform: translateZ(-10px);
+}
+
+/* Reward animation */
+@keyframes reward {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    50% { transform: scale(1.2) rotate(10deg); }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+
+.reward {
+    animation: reward 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Tooltip styles */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    transition: transform 0.2s;
+    pointer-events: none;
+}
+
+[data-tooltip]:hover:before {
+    transform: translateX(-50%) scale(1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--glass);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+/* Ripple effect */
+.ripple {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active:after {
+    transform: scale(0, 0);
+    opacity: 0.3;
+    transition: 0s;
+}
+
+/* Confetti animation for achievements */
+@keyframes confetti {
+    0% { transform: translateY(0) rotate(0); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    animation: confetti 4s ease-out forwards;
+}

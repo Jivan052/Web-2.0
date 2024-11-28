@@ -1,0 +1,68 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Learning App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <div class="profile">
+                <div class="avatar">
+                    <img src="https://via.placeholder.com/50" alt="User">
+                    <span class="streak">🔥 5</span>
+                </div>
+                <div class="user-info">
+                    <h3>John Doe</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 70%"></div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li class="active"><i class="fas fa-book"></i>Lessons</li>
+                <li><i class="fas fa-crown"></i>Achievements</li>
+                <li><i class="fas fa-users"></i>Friends</li>
+                <li><i class="fas fa-cog"></i>Settings</li>
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="header">
+                <h1>Choose a Lesson</h1>
+                <div class="stats">
+                    <span><i class="fas fa-gem"></i> 1200</span>
+                    <span><i class="fas fa-heart"></i> 5</span>
+                </div>
+            </div>
+            <div class="lessons-grid">
+                <div class="lesson-card">
+                    <div class="lesson-icon">🇪🇸</div>
+                    <h3>Basics</h3>
+                    <p>Learn essential phrases</p>
+                    <div class="card-footer">
+                        <span class="xp">20 XP</span>
+                        <button class="start-btn">Start</button>
+                    </div>
+                </div>
+                <div class="lesson-card locked">
+                    <div class="lesson-icon">🗣️</div>
+                    <h3>Greetings</h3>
+                    <p>Common expressions</p>
+                    <div class="card-footer">
+                        <span class="xp">30 XP</span>
+                        <button class="start-btn" disabled>
+                            <i class="fas fa-lock"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Add more lesson cards as needed -->
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
