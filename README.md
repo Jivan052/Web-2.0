@@ -37,6 +37,7 @@ Here’s a list of the cool projects featured in this repo:
 10. **Login-dash** - A basic login and market user dashboard
 11. **Task Manager** - A dynamic interface for managing your task proficiently
 12. **Pocket** - A dynamic & functional web-based app for saving your imp's
+13. **DuoTalk** - A dynamic & functional web-based application for just clone!
 
    ...on the way, stay connected!
 ---
