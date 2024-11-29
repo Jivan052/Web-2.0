@@ -71,7 +71,7 @@ cd project-name
 3. Open the index.html file in your browser to view the project locally.
 
 ## 🤝 Contribution
-We love contributions! 💡
+We love contributions! 💡 
 
 To contribute, follow these simple steps:
   - Fork the repository.
@@ -79,6 +79,12 @@ To contribute, follow these simple steps:
   - Commit your changes.
   - Push your branch to your fork.
   - Open a Pull Request!
+
+[ Note: 
+
+Whenever i deploy new project on internet I Will paste link in repo description. Defenately try to check out it and give feedback on it. 
+
+]
 
 ## 🖤 Support & Contact
 Got any questions or feedback? Let’s talk! 🤖
