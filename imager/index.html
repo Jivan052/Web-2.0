@@ -1,0 +1,90 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaFilter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="top-nav">
+            <div class="logo">InstaFilt</div>
+            <div class="nav-actions">
+                <button class="upload-btn">
+                    <i class="fas fa-plus"></i>
+                    <input type="file" id="imageInput" accept="image/*">
+                </button>
+            </div>
+        </nav>
+
+        <main class="editor">
+            <div class="preview-area">
+                <canvas id="canvas"></canvas>
+                <div id="stickerLayer"></div>
+            </div>
+
+            <div class="controls">
+                <div class="filters-scroll">
+                    <div class="filter" data-filter="normal">
+                        <div class="filter-preview"></div>
+                        <span>Normal</span>
+                    </div>
+                    <div class="filter" data-filter="clarendon">
+                        <div class="filter-preview"></div>
+                        <span>Clarendon</span>
+                    </div>
+                    <div class="filter" data-filter="gingham">
+                        <div class="filter-preview"></div>
+                        <span>Gingham</span>
+                    </div>
+                    <div class="filter" data-filter="moon">
+                        <div class="filter-preview"></div>
+                        <span>Moon</span>
+                    </div>
+                </div>
+
+                <div class="adjustments">
+                    <div class="adjustment-slider">
+                        <label>Brightness</label>
+                        <input type="range" id="brightness" min="-100" max="100" value="0">
+                    </div>
+                    <div class="adjustment-slider">
+                        <label>Contrast</label>
+                        <input type="range" id="contrast" min="-100" max="100" value="0">
+                    </div>
+                    <div class="adjustment-slider">
+                        <label>Saturation</label>
+                        <input type="range" id="saturation" min="-100" max="100" value="0">
+                    </div>
+                </div>
+
+                <div class="stickers-panel">
+                    <h3>Stickers</h3>
+                    <div class="sticker-grid">
+                        <div class="sticker" draggable="true">😊</div>
+                        <div class="sticker" draggable="true">❤️</div>
+                        <div class="sticker" draggable="true">🌟</div>
+                        <div class="sticker" draggable="true">🎉</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-bar">
+                <button id="resetBtn" class="secondary-btn">
+                    <i class="fas fa-undo"></i> Reset
+                </button>
+                <button id="saveBtn" class="primary-btn">
+                    <i class="fas fa-download"></i> Save
+                </button>
+                <button id="shareBtn" class="primary-btn">
+                    <i class="fas fa-share"></i> Share
+                </button>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
