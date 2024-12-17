@@ -39,6 +39,7 @@ Here’s a list of the cool projects featured in this repo:
 12. **Pocket** - A dynamic & functional web-based app for saving your imp's
 13. **DuoTalk** - A dynamic & functional web-based application for just clone!
 14. **FalshyThings** - Want some flash cards to play, use this basic prototype for fun and gamify your learnings with cards
+15. **Calsi** - A simple calculator wih simple effects
 
    ...on the way, stay connected!
 ---
