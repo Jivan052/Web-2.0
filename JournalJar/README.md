@@ -1,4 +1,5 @@
 # JournalJar 📓✨
+![image](https://github.com/user-attachments/assets/d73878ce-3247-4e3a-853b-5466ecbf3f21)
 
 ## Overview
 JournalJar is a web-based personal journaling application that helps you track your thoughts, moods, and daily experiences in an intuitive and engaging way.
