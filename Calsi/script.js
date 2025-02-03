@@ -1,4 +1,5 @@
 // script.js
+// Demo changes
 
 let resultInput = document.getElementById("result");
 
