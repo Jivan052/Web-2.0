@@ -192,13 +192,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if(tagsInput){
             tagsInput.addEventListener('keyup', (e) => {
                 if (e.key === 'Enter') {
-                    // Here we are getting tags
+                    // Here extract tags from input, split by commas.
                     const tags = e.target.value.split(',')
                     .map(tag => tag.trim())
-                    //Think what happpen when tags are empty. So we have to remove clear tag first.
+                    //Think what happpen when tags are empty. So we have to clear empty tag first.
                     .filter(tag => tag !== '');
                 
-                    // when length of tag is greater than 0 then we will update tags and set into them in locale storage.
+                    // when length of tag is greater than 0 then we will update tags and set into them in locale storage otherwise it skip the whole process.
                     if(tags.length > 0){
                         flashcards[currentIndex].tags = tags;
                         updateTags();
