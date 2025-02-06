@@ -124,123 +124,144 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize
     updateUI();
-});
-// Add to script.js
-document.addEventListener('keydown', (e) => {
-    switch(e.key) {
-        case 'ArrowLeft':
-            prevBtn.click();
-            break;
-        case 'ArrowRight':
-            nextBtn.click();
-            break;
-        case ' ':  // Spacebar
-            e.preventDefault();
-            flipBtn.click();
-            break;
-        case 'Delete':
-            if (confirm('Delete this card?')) {
-                deleteBtn.click();
-            }
-            break;
-    }
-});
-// Add to existing script.js
-const studyTimer = {
-    startTime: null,
-    interval: null,
-    element: document.getElementById('studyTimer'),
-    
-    start() {
-        this.startTime = Date.now();
-        this.interval = setInterval(() => {
-            const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
-            const minutes = Math.floor(elapsed / 60);
-            const seconds = elapsed % 60;
-            this.element.textContent = `Study time: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }, 1000);
-    },
-    
-    stop() {
-        clearInterval(this.interval);
-    }
-};
 
-// Difficulty rating
-document.querySelectorAll('.star').forEach(star => {
-    star.addEventListener('click', () => {
-        const rating = parseInt(star.dataset.rating);
-        const cardId = flashcards[currentIndex].id;
-        flashcards[currentIndex].difficulty = rating;
-        updateStarRating(rating);
-        saveToLocalStorage();
+
+    // Add to script.js
+    document.addEventListener('keydown', (e) => {
+        switch(e.key) {
+            case 'ArrowLeft':
+                prevBtn.click();
+                break;
+            case 'ArrowRight':
+                nextBtn.click();
+                break;
+            case ' ':  // Spacebar
+                e.preventDefault();
+                flipBtn.click();
+                break;
+            case 'Delete':
+                if (confirm('Delete this card?')) {
+                    deleteBtn.click();
+                }
+                break;
+        }
     });
-});
-
-function updateStarRating(rating) {
-    document.querySelectorAll('.star').forEach(star => {
-        const starRating = parseInt(star.dataset.rating);
-        star.classList.toggle('active', starRating <= rating);
-    });
-}
-
-// Tags management
-document.getElementById('tags').addEventListener('keyup', (e) => {
-    if (e.key === 'Enter') {
-        const tags = e.target.value.split(',').map(tag => tag.trim());
-        flashcards[currentIndex].tags = tags;
-        updateTags();
-        saveToLocalStorage();
-        e.target.value = '';
-    }
-});
-
-function updateTags() {
-    const tagsContainer = document.getElementById('cardTags');
-    const tags = flashcards[currentIndex].tags || [];
-    tagsContainer.innerHTML = tags.map(tag => `
-        <span class="tag">${tag}</span>
-    `).join('');
-}
-
-// Export/Import functionality
-document.getElementById('exportBtn').addEventListener('click', () => {
-    const data = JSON.stringify(flashcards);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'flashcards.json';
-    a.click();
-});
-
-document.getElementById('importBtn').addEventListener('click', () => {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.json';
-    input.onchange = (e) => {
-        const file = e.target.files[0];
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            flashcards = JSON.parse(event.target.result);
-            saveToLocalStorage();
-            updateUI();
-        };
-        reader.readAsText(file);
+    // Add to existing script.js
+    const studyTime = document.getElementById('studyTimer');
+    if(!studyTime) return;
+    const studyTimer = {
+        startTime: null,
+        interval: null,
+        element: studyTime,
+        
+        start() {
+            this.startTime = Date.now();
+            this.interval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - this.startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                this.element.textContent = `Study time: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        },
+        
+        stop() {
+            clearInterval(this.interval);
+        }
     };
-    input.click();
-});
-
-// Keyboard shortcuts
-document.addEventListener('keydown', (e) => {
-    if (e.key === '?') {
-        document.querySelector('.shortcuts-help').classList.toggle('visible');
-    } else if (e.key >= '1' && e.key <= '3') {
-        const rating = parseInt(e.key);
-        updateStarRating(rating);
+    
+    // Difficulty rating
+    document.querySelectorAll('.star').forEach(star => {
+        star.addEventListener('click', () => {
+            const rating = parseInt(star.dataset.rating);
+            const cardId = flashcards[currentIndex].id;
+            flashcards[currentIndex].difficulty = rating;
+            updateStarRating(rating);
+            saveToLocalStorage();
+        });
+    });
+    
+    function updateStarRating(rating) {
+        document.querySelectorAll('.star').forEach(star => {
+            const starRating = parseInt(star.dataset.rating);
+            star.classList.toggle('active', starRating <= rating);
+        });
     }
-});
+    
+    // Tags management
+    const tagsInput = document.getElementById('tags');
+        if(tagsInput){
+            tagsInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    // Here extract tags from input, split by commas.
+                    const tags = e.target.value.split(',')
+                    .map(tag => tag.trim())
+                    //Think what happpen when tags are empty. So we have to clear empty tag first.
+                    .filter(tag => tag !== '');
+                
+                    // when length of tag is greater than 0 then we will update tags and set into them in locale storage otherwise it skip the whole process.
+                    if(tags.length > 0){
+                        flashcards[currentIndex].tags = tags;
+                        updateTags();
+                        saveToLocalStorage();
+                        e.target.value = '';// Clear input
+                    }
+                }
+            });
+        }
+    
+    function updateTags() {
+        const tagsContainer = document.getElementById('cardTags');
+        if(!tagsContainer) return;
+        if(!flashcards.length || !flashcards[currentIndex]){
+            tagsContainer.innerHTML = ''
+            return;
+        }
+        const tags = flashcards[currentIndex].tags || [];
+        tagsContainer.innerHTML = tags.map(tag => `
+            <span class="tag">${tag}</span>
+        `).join('');
+    }
+    
+    // Export/Import functionality
+    document.getElementById('exportBtn').addEventListener('click', () => {
+        const data = JSON.stringify(flashcards);
+        const blob = new Blob([data], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'flashcards.json';
+        a.click();
+    });
+    
+    document.getElementById('importBtn').addEventListener('click', () => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = '.json';
+        input.onchange = (e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                flashcards = JSON.parse(event.target.result);
+                saveToLocalStorage();
+                updateUI();
+            };
+            reader.readAsText(file);
+        };
+        input.click();
+    });
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        if (e.key === '?') {
+            document.querySelector('.shortcuts-help').classList.toggle('visible');
+        } else if (e.key >= '1' && e.key <= '3') {
+            const rating = parseInt(e.key);
+            updateStarRating(rating);
+        }
+    });
+    
+    // Initialize features
+    studyTimer.start();
+    updateTags();
 
-// Initialize features
-studyTimer.start();
-updateTags();
+});
