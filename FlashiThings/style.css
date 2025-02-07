@@ -42,6 +42,14 @@ form {
     margin-top: 20px;
 }
 
+#category{
+    outline: none;
+}
+
+#category > option{
+    color: black;
+}
+
 select, textarea {
     padding: 10px;
     border-radius: 8px;
@@ -53,6 +61,7 @@ select, textarea {
 
 textarea {
     min-height: 100px;
+    outline: none;
 }
 
 .btn-add {
@@ -80,6 +89,14 @@ textarea {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
+}
+
+#filter-category{
+    outline: none;
+}
+
+#filter-category > option {
+    color: black;
 }
 
 .navigation {
